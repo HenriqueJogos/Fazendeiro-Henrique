@@ -10,9 +10,6 @@ public class PlayerNewController : MonoBehaviour
     public InputActionAsset InputActions;
     public InputAction moveAction;
     public InputAction fireAction;
-    public InputAction pauseAction;
-    public InputAction despauseAction;
-    public GameObject menuPause;
 
     // Update is called once per frame
     void Update()
@@ -34,14 +31,6 @@ public class PlayerNewController : MonoBehaviour
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         } 
-        if(pauseAction.WasPressedThisFrame())
-        {
-            Pause();
-        }
-        if(despauseAction.WasPressedThisFrame())
-        {
-            Despause();
-        }
     }
 
     private void OnEnable()
@@ -53,27 +42,11 @@ public class PlayerNewController : MonoBehaviour
     {
         InputActions.FindActionMap("Player").Disable();
     }
-    private void Pause()
-    {
-        OnDisable();
-        InputActions.FindActionMap("UI").Enable();
-        menuPause.gameObject.SetActive(true);
-
-    }
-    private void Despause()
-    {
-        InputActions.FindActionMap("UI").Disable();
-        OnEnable();
-        menuPause.gameObject.SetActive(false);
-
-    }
+  
     private void Awake()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         fireAction = InputSystem.actions.FindAction("Jump");
-        pauseAction = InputSystem.actions.FindAction("Pause");
-        despauseAction = InputSystem.actions.FindAction("Despause");
-
     }
 }
 
