@@ -1,12 +1,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Ghost : MonoBehaviour
 {
     public InputActionAsset InputActions;
     public InputAction ghostAction;
     [SerializeField] private GameObject model;
+    private IEnumerator coroutine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,11 +22,19 @@ public class Ghost : MonoBehaviour
         if(ghostAction.WasPressedThisFrame())
         {
             model.SetActive(false);
+            coroutine = Duracao(0.6f);
+            StartCoroutine(coroutine);
         } 
     }
 
     private void Awake()
     {
         ghostAction = InputSystem.actions.FindAction("Ghost");
+    }
+
+    private IEnumerator Duracao(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        model.SetActive(true);
     }
 }
