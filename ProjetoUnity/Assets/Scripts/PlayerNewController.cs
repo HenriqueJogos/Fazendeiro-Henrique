@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerNewController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerNewController : MonoBehaviour
     public InputActionAsset InputActions;
     public InputAction moveAction;
     public InputAction fireAction;
+    private IEnumerator coroutine;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +33,18 @@ public class PlayerNewController : MonoBehaviour
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         } 
+    }
+
+    public void AumentarVelocidade()
+    {
+        speed = 40f;
+        coroutine = Duracao(5.0f);
+        StartCoroutine(coroutine);
+    }
+    private IEnumerator Duracao(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        speed = 20f;
     }
 
     private void OnEnable()

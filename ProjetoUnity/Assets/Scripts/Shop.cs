@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class Shop : MonoBehaviour
 {
     public InputActionAsset InputActions;
@@ -9,6 +10,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject menuShop;
     public Pontos pontosScript;
     public Vida vidaScript;
+    public PlayerNewController playerScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +18,7 @@ public class Shop : MonoBehaviour
         despause = false;
         pontosScript = FindObjectOfType<Pontos>();
         vidaScript = FindObjectOfType<Vida>();
+        playerScript = FindObjectOfType<PlayerNewController>();
     }
 
     // Update is called once per frame
@@ -44,10 +47,18 @@ public class Shop : MonoBehaviour
 
     public void VidaShop()
     {
-        if(pontosScript.pontucao >= 200)
+        if(pontosScript.pontucao >= 2000)
         {
             vidaScript.AumentaVida();
-            pontosScript.MudarPontos(-200);
+            pontosScript.MudarPontos(-2000);
+        }
+    }
+
+    public void VelocidadeShop()
+    {
+        if(pontosScript.pontucao >= 200)
+        {
+            playerScript.AumentarVelocidade();
         }
     }
 

@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
 
     public void Jogar()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(nomedacena);
     }
     public void AbrirOpcoes()
