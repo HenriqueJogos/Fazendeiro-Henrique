@@ -12,7 +12,7 @@ public class DetectCollisions : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
             var pontos = FindObjectOfType<Pontos>();
-            if(pontos!= null) pontos.MudarPontos();
+            if(pontos!= null) pontos.MudarPontos(100);
         }
     }
 }

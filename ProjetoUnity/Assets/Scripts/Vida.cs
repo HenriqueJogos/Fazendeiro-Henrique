@@ -12,7 +12,7 @@ public class Vida : MonoBehaviour
     {
         vidas = 3;
     }
-    private void MudarImagem()
+    public void MudarImagem()
     {
         if(vidas==3)
         {
@@ -32,6 +32,15 @@ public class Vida : MonoBehaviour
         {
             vida3.SetActive(false);
             gameOver.SetActive(true);
+        }
+    }
+
+    public void AumentaVida()
+    {
+        if(vidas<3)
+        {
+            vidas++;
+            MudarImagem();
         }
     }
 

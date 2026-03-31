@@ -6,7 +6,7 @@ public class Pause : MonoBehaviour
     public InputActionAsset InputActions;
     public InputAction pauseAction;
     private bool despause;
-    public GameObject menuPause;
+    [SerializeField] private GameObject menuPause;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

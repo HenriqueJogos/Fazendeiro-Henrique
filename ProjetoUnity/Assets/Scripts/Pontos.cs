@@ -3,7 +3,7 @@ using TMPro;
 
 public class Pontos : MonoBehaviour
 {
-    private int pontucao;
+    public int pontucao;
     private GameObject pontucaoText;
     private TextMeshProUGUI texto;
 
@@ -14,9 +14,9 @@ public class Pontos : MonoBehaviour
         texto = pontucaoText.GetComponent<TextMeshProUGUI>(); 
     }
 
-    public void MudarPontos()
+    public void MudarPontos(int valor)
     {
-        pontucao = pontucao + 100;
+        pontucao = pontucao + valor;
         texto.text = pontucao.ToString();
     }
 }
