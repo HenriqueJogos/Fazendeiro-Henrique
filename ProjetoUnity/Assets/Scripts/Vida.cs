@@ -23,6 +23,7 @@ public class Vida : MonoBehaviour
         if(vidas==2)
         {
             vida3.SetActive(false); 
+            vida2.SetActive(true);
         }
         if(vidas==1)
         {

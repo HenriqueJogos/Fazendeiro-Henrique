@@ -59,6 +59,7 @@ public class Shop : MonoBehaviour
         if(pontosScript.pontucao >= 200)
         {
             playerScript.AumentarVelocidade();
+            pontosScript.MudarPontos(-200);
         }
     }
 
